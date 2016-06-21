@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        
+        
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        
+        
+        <h:form>
+            <br />
+            <br />
+            <br />
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <p:panel id="basic" header="GESTION DE PRESTAMO" footer="Movie Details" style="margin-bottom:20px">
+       
+          <p:layout style="min-width:1400px;min-height:800px;">
+    <p:layoutUnit position="west" resizable="true" size="250" minSize="100" maxSize="350">
+      <h3 style="margin-top:0">MENU PRINCIPAL</h3>
+      <h3>****************</h3>
+    <p:menu >
+       
+        <p:submenu label="GESTIONAR CLIENTE">
+           
+            <p:menuitem value="REGISTRAR CLIENTE" outcome="/cliente/List" icon="ui-icon-star"/>
+        </p:submenu>
+    </p:menu>
+      <p:menu >
+       
+        <p:submenu label="GESTIONAR CREDITO">
+           
+            <p:menuitem value="REGISTRAR CREDITO" outcome="/credito/List" icon="ui-icon-star"/>
+             <p:menuitem value="REGISTRAR PLAN DE PAGOS" outcome="/plandepago/List" icon="ui-icon-star"/>
+             <p:menuitem value="REGISTRAR PAGOS" outcome="/pago/List" icon="ui-icon-star"/>
+        </p:submenu>
+    </p:menu>
+      <p:menu >
+       
+        <p:submenu label="GESTIONAR USUARIO">
+           
+            <p:menuitem value="REGISTRAR USUARIO" outcome="/usuario/List" icon="ui-icon-star"/>
+            <p:menuitem value="REGISTRAR ROL" outcome="/rol/List" icon="ui-icon-star"/>
+        </p:submenu>
+    </p:menu>
+        
+    </p:layoutUnit>
+ 
+    <p:layoutUnit position="center">
+        <h:graphicImage value="assets/img/backgrounds/7.jpg" height="prestamo"> </h:graphicImage>
+       
+    </p:layoutUnit>
+</p:layout> 
+    </p:panel>
+       </h:form>
+        
+    </h:body>
+
+
+
+
+
+
+</html>
+

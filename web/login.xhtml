@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'/>
+        <link rel="stylesheet" href="assets/css/reset.css"/>
+        <link rel="stylesheet" href="assets/css/supersized.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+    </h:head>
+
+
+    <head><title>JSF Login Application</title></head>
+    <body>
+        <div class="page-container">	
+        <f:view>
+            <h:form>
+
+                <h1>Login</h1>
+                
+                <table>
+                    <tr>
+                        <td><h:outputText value="Enter Username: " /></td>
+                        <td><h:inputText id="username"
+                                         value="#{blogin.usuario.login}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h:outputText value="Enter Password: " /></td>
+                        <td><h:inputSecret id="password"
+                                           value="#{blogin.usuario.pass}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><h:commandButton class="button" value="Login"
+                                             action="#{blogin.autentificar1()}"/>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td></td>
+                       
+                    </tr>
+                </table>
+            </h:form>
+        </f:view>
+            </div>
+         <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/js/supersized.3.2.7.min.js"></script>
+        <script src="assets/js/supersized-init.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        
+    </body>
+
+</html>

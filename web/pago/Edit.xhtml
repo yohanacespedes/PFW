@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PagoEditDlg" widgetVar="PagoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPagoTitle}">
+            <h:form id="PagoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pagoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPagoLabel_idPago}" for="idPago" />
+                        <p:inputText id="idPago" value="#{pagoController.selected.idPago}" title="#{bundle.EditPagoTitle_idPago}" required="true" requiredMessage="#{bundle.EditPagoRequiredMessage_idPago}"/>
+                        <p:outputLabel value="#{bundle.EditPagoLabel_IDEmpresa}" for="IDEmpresa" />
+                        <p:inputText id="IDEmpresa" value="#{pagoController.selected.IDEmpresa}" title="#{bundle.EditPagoTitle_IDEmpresa}" />
+                        <p:outputLabel value="#{bundle.EditPagoLabel_fecha}" for="fecha" />
+                        <p:inputText id="fecha" value="#{pagoController.selected.fecha}" title="#{bundle.EditPagoTitle_fecha}" />
+                        <p:outputLabel value="#{bundle.EditPagoLabel_importe}" for="importe" />
+                        <p:inputText id="importe" value="#{pagoController.selected.importe}" title="#{bundle.EditPagoTitle_importe}" />
+                        <p:outputLabel value="#{bundle.EditPagoLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{pagoController.selected.estado}" title="#{bundle.EditPagoTitle_estado}" />
+                        <p:outputLabel value="#{bundle.EditPagoLabel_idCredi}" for="idCredi" />
+                        <p:selectOneMenu id="idCredi" value="#{pagoController.selected.idCredi}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{creditoController.itemsAvailableSelectOne}"
+                                           var="idCrediItem"
+                                           itemValue="#{idCrediItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{pagoController.update}" value="#{bundle.Save}" update="display,:PagoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PagoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PagoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

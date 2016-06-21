@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ClienteViewDlg" widgetVar="ClienteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewClienteTitle}">
+            <h:form id="ClienteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{clienteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewClienteLabel_idCliente}"/>
+                        <h:outputText value="#{clienteController.selected.idCliente}" title="#{bundle.ViewClienteTitle_idCliente}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_IDEmpresa}"/>
+                        <h:outputText value="#{clienteController.selected.IDEmpresa}" title="#{bundle.ViewClienteTitle_IDEmpresa}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_nombre}"/>
+                        <h:outputText value="#{clienteController.selected.nombre}" title="#{bundle.ViewClienteTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_apellidoPaterno}"/>
+                        <h:outputText value="#{clienteController.selected.apellidoPaterno}" title="#{bundle.ViewClienteTitle_apellidoPaterno}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_apellidoMaterno}"/>
+                        <h:outputText value="#{clienteController.selected.apellidoMaterno}" title="#{bundle.ViewClienteTitle_apellidoMaterno}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_ci}"/>
+                        <h:outputText value="#{clienteController.selected.ci}" title="#{bundle.ViewClienteTitle_ci}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_direccion}"/>
+                        <h:outputText value="#{clienteController.selected.direccion}" title="#{bundle.ViewClienteTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_telefono}"/>
+                        <h:outputText value="#{clienteController.selected.telefono}" title="#{bundle.ViewClienteTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_mz}"/>
+                        <h:outputText value="#{clienteController.selected.mz}" title="#{bundle.ViewClienteTitle_mz}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_uv}"/>
+                        <h:outputText value="#{clienteController.selected.uv}" title="#{bundle.ViewClienteTitle_uv}"/>
+                        <h:outputText value="#{bundle.ViewClienteLabel_nit}"/>
+                        <h:outputText value="#{clienteController.selected.nit}" title="#{bundle.ViewClienteTitle_nit}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ClienteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

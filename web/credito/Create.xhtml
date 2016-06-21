@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CreditoCreateDlg" widgetVar="CreditoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCreditoTitle}">
+            <h:form id="CreditoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{creditoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_idCredito}" for="idCredito" />
+                        <p:inputText id="idCredito" value="#{creditoController.selected.idCredito}" title="#{bundle.CreateCreditoTitle_idCredito}" required="true" requiredMessage="#{bundle.CreateCreditoRequiredMessage_idCredito}"/>
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_IDEmpresa}" for="IDEmpresa" />
+                        <p:inputText id="IDEmpresa" value="#{creditoController.selected.IDEmpresa}" title="#{bundle.CreateCreditoTitle_IDEmpresa}" />
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_cuotasPagadas}" for="cuotasPagadas" />
+                        <p:inputText id="cuotasPagadas" value="#{creditoController.selected.cuotasPagadas}" title="#{bundle.CreateCreditoTitle_cuotasPagadas}" />
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_fecha}" for="fecha" />
+                        <p:inputText id="fecha" value="#{creditoController.selected.fecha}" title="#{bundle.CreateCreditoTitle_fecha}" />
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_importe}" for="importe" />
+                        <p:inputText id="importe" value="#{creditoController.selected.importe}" title="#{bundle.CreateCreditoTitle_importe}" />
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_interes}" for="interes" />
+                        <p:inputText id="interes" value="#{creditoController.selected.interes}" title="#{bundle.CreateCreditoTitle_interes}" />
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_saldo}" for="saldo" />
+                        <p:inputText id="saldo" value="#{creditoController.selected.saldo}" title="#{bundle.CreateCreditoTitle_saldo}" />
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{creditoController.selected.estado}" title="#{bundle.CreateCreditoTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_idCli}" for="idCli" />
+                        <p:selectOneMenu id="idCli" value="#{creditoController.selected.idCli}" >
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="idCliItem"
+                                           itemValue="#{idCliItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_idU}" for="idU" />
+                        <p:selectOneMenu id="idU" value="#{creditoController.selected.idU}" >
+                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
+                                           var="idUItem"
+                                           itemValue="#{idUItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCreditoLabel_idPlanP}" for="idPlanP" />
+                        <p:selectOneMenu id="idPlanP" value="#{creditoController.selected.idPlanP}" >
+                            <f:selectItems value="#{plandepagoController.itemsAvailableSelectOne}"
+                                           var="idPlanPItem"
+                                           itemValue="#{idPlanPItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{creditoController.create}" value="#{bundle.Save}" update="display,:CreditoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CreditoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CreditoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

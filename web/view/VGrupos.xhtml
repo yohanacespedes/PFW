@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="100" header="Top" resizable="true" closable="true" collapsible="true">
+                <h:outputText value="North unit content." />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true">
+                <h:outputText value="South unit content." />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
+                  <p:menu>
+                    <p:submenu label="Resources"> 
+                        <p:menuitem value="Usuarios" url="/faces/view/VUsuarios.xhtml"  /> 
+                        <p:menuitem value="Grupos" url="/faces/view/VGrupos.xhtml" /> 
+                    </p:submenu>
+                    <p:submenu label="Pefil"> 
+                        <p:menuitem value="Crear" url="/faces/view/Privilegios.xhtml"  /> 
+                        <p:menuitem value="Perfiles" url="/faces/view/VPrivilegios.xhtml" /> 
+                    </p:submenu>
+
+                </p:menu>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+                <h:outputText value="Right unit content." />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <p:panel  id="dlGrupos" >
+
+                    <p:inputText value="#{bgrupo.nombre}"  placeholder="NOMBRE GRUPO"  />
+                    <h:form>
+                        <p:commandButton value="ADICIONAR" />
+                        <p:commandButton value="MODIFICAR" />
+                        <p:commandButton value="ELIMINAR" />
+                    </h:form>
+
+                    <p:dataTable var="ob" value="#{bgrupo.grupos}"   scrollable="true" scrollHeight="150"   >
+
+                        <p:column headerText="Nombre Grupo"  sortBy="#{ob.nombre}" >
+                            <h:outputText value="#{ob.nombre}" />
+                        </p:column>
+
+
+                    </p:dataTable> 
+
+
+                </p:panel>
+
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
+
